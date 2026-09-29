@@ -1,0 +1,63 @@
+media:
+  input: images
+  output: /images
+  extensions: [jpg, jpeg, png, webp, svg]
+
+content:
+  - name: products
+    label: Products
+    type: file
+    path: data/products.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Product name
+        type: string
+        required: true
+      - name: photo
+        label: Photo
+        type: image
+      - name: description
+        label: Description
+        type: text
+      - name: details
+        label: Bullet points
+        type: string
+        list: true
+      - name: price
+        label: Price (optional, e.g. $24.99)
+        type: string
+      - name: badge
+        label: Badge (optional, e.g. BEST SELLER, NEW)
+        type: string
+      - name: button_text
+        label: Button text
+        type: string
+        default: Buy on Etsy
+      - name: link
+        label: Button link (Etsy listing URL). Leave empty to use the Etsy shop link
+        type: string
+      - name: published
+        label: Show on site
+        type: boolean
+        default: true
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: data/settings.json
+    format: json
+    fields:
+      - name: etsy_url
+        label: Etsy shop link
+        type: string
+      - name: facebook_url
+        label: Facebook page link
+        type: string
+      - name: messenger_url
+        label: Messenger link (m.me/...)
+        type: string
+      - name: email
+        label: Contact email
+        type: string
