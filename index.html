@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CDE Print Works | Custom 3D Printing in Massachusetts</title>
+<meta name="description" content="Handmade 3D printed home decor, desk gear, gifts and custom pieces. Made to order in Massachusetts, shipped nationwide.">
+<meta property="og:title" content="CDE Print Works | Custom 3D Printing">
+<meta property="og:description" content="3D printed decor, desk gear, gifts and custom orders. Made in Massachusetts, ships nationwide.">
+<meta property="og:url" content="https://cdeprintworks.com">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Products and links are edited in the admin panel (data/products.json, data/settings.json) */
+:root{
+  --cream:#F6ECDF; --cream-2:#EFE2D1; --paper:#FFFBF5;
+  --navy:#0E2554; --blue:#1E50A0; --teal:#1CA8AA; --ink:#1B2233; --muted:#5A6275;
+  --grad:linear-gradient(120deg,var(--teal),var(--blue) 60%,var(--navy));
+  --r:18px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.layers{background-image:repeating-linear-gradient(0deg,rgba(14,37,84,.045) 0 1px,transparent 1px 10px)}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(246,236,223,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,37,84,.08)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy);letter-spacing:.02em}
+.brand img{height:38px;width:auto}
+.links{display:flex;gap:28px;font-weight:500;font-size:.95rem;color:var(--navy)}
+.links a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(14,37,84,.22)}
+.btn-ghost{border:2px solid var(--navy);color:var(--navy)}
+.btn-sm{padding:9px 18px;font-size:.88rem}
+
+/* hero */
+.hero{padding:72px 0 88px;position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{color:var(--teal);font-weight:600;letter-spacing:.14em;font-size:.8rem;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;color:var(--navy);margin:12px 0 18px;font-weight:700}
+h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.1rem;color:var(--muted);max-width:520px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.badges{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;font-size:.9rem;color:var(--navy);font-weight:500}
+.badges div{display:flex;align-items:center;gap:8px}
+.badges i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero .wrap{position:relative;z-index:1}
+.hero-art .disc{position:absolute;width:88%;aspect-ratio:1;border-radius:50%;background:var(--paper);box-shadow:0 30px 60px rgba(14,37,84,.12)}
+.hero-art img{position:relative;width:92%;filter:drop-shadow(0 18px 30px rgba(14,37,84,.18))}
+.swoosh{position:absolute;pointer-events:none}
+
+/* sections */
+section{padding:88px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 48px}
+h2{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--navy);line-height:1.2;margin-top:8px}
+.head p{color:var(--muted);margin-top:12px}
+
+/* products */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--paper);border-radius:var(--r);overflow:hidden;box-shadow:0 10px 30px rgba(14,37,84,.08);display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card .img{aspect-ratio:4/3;background:var(--cream-2);display:grid;place-items:center;position:relative}
+.card .img img{width:100%;height:100%;object-fit:cover}
+.card .btn{align-self:flex-start}
+.price{font-weight:700;color:var(--navy);font-size:1.05rem;margin:-6px 0 16px}
+.tag{position:absolute;top:14px;left:14px;background:var(--teal);color:#fff;font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.04em}
+.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.card h3{color:var(--navy);font-size:1.15rem}
+.card p{color:var(--muted);font-size:.93rem;margin:8px 0 18px;flex:1}
+.card ul{list-style:none;font-size:.88rem;color:var(--ink);margin:-6px 0 18px}
+.card li{padding-left:16px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+
+/* custom */
+.custom{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.custom h2{color:#fff}
+.custom .head p{color:#C9D3EA}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px}
+.step b{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--grad);font-size:1.1rem;margin-bottom:16px}
+.step h3{font-size:1.1rem;margin-bottom:6px}
+.step p{color:#C9D3EA;font-size:.93rem}
+.custom .cta{justify-content:center;margin-top:44px}
+.custom .btn-primary{background:var(--teal);box-shadow:none}
+.custom .btn-ghost{border-color:#fff;color:#fff}
+
+/* about */
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about p{color:var(--muted);margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat{background:var(--paper);border-radius:var(--r);padding:26px 18px;text-align:center;box-shadow:0 10px 30px rgba(14,37,84,.06)}
+.stat strong{display:block;font-size:1.6rem;color:var(--navy)}
+.stat span{font-size:.82rem;color:var(--muted)}
+
+/* footer */
+footer{background:#0A1B3F;color:#C9D3EA;padding:56px 0 28px;font-size:.92rem}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}
+footer a:hover{color:var(--teal)}
+footer li{list-style:none;margin:6px 0}
+.fbrand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;margin-bottom:12px}
+.fbrand img{height:34px;background:var(--cream);border-radius:8px;padding:4px}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:900px){
+  .hero .grid,.about .grid{grid-template-columns:1fr}
+  .hero-art{order:-1;max-width:300px;width:100%;margin:0 auto}
+  .swoosh{display:none}
+  .cards,.steps{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .links{display:none}
+  section{padding:64px 0}
+  .hero{padding:40px 0 64px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="brand"><img src="logo.png" alt="CDE logo">PRINT WORKS</a>
+      <div class="links">
+        <a href="#shop">Shop</a>
+        <a href="#custom">Custom Orders</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-primary btn-sm" data-etsy href="#" target="_blank" rel="noopener">Shop on Etsy</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero layers">
+  <svg class="swoosh" style="right:-120px;bottom:-40px;width:760px" viewBox="0 0 760 220" aria-hidden="true">
+    <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#1CA8AA"/><stop offset=".6" stop-color="#1E50A0"/><stop offset="1" stop-color="#0E2554"/></linearGradient></defs>
+    <path d="M0 200 C220 120 460 40 760 60 L760 110 C480 90 260 150 0 200Z" fill="url(#g1)"/>
+    <path d="M140 220 C360 170 560 140 760 150 L760 220Z" fill="#0E2554" opacity=".9"/>
+  </svg>
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Made in Massachusetts</div>
+      <h1>Custom 3D prints, <span>made just for you.</span></h1>
+      <p class="lead">Modern home decor, desk gear, gifts and one-of-a-kind pieces, designed and printed to order by a small family studio.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#shop">See our products</a>
+        <a class="btn btn-ghost" href="#custom">Request a custom print</a>
+      </div>
+      <div class="badges">
+        <div><i></i>Ships nationwide</div>
+        <div><i></i>Local pickup in MA</div>
+        <div><i></i>Custom colors</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="logo.png" alt="CDE Print Works">
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Shop</div>
+      <h2>Best sellers</h2>
+      <p>Every piece is printed to order in the colors you choose.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="custom" class="custom layers">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Custom orders</div>
+      <h2>Have an idea? We'll print it.</h2>
+      <p>From a quick sketch to a finished piece in three simple steps.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Send your idea</h3><p>A photo, a sketch, a link or just a description. Include size and colors if you know them.</p></div>
+      <div class="step"><b>2</b><h3>Get a quote</h3><p>We'll reply with a price, colors and a production time. No commitment.</p></div>
+      <div class="step"><b>3</b><h3>We print & ship</h3><p>Your piece is printed to order and shipped anywhere in the US, or ready for local pickup in MA.</p></div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-primary" data-email-subject="Custom print request" href="#">Email your idea</a>
+      <a class="btn btn-ghost" data-messenger href="#" target="_blank" rel="noopener">Message us on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">About us</div>
+      <h2>A small family studio in Massachusetts</h2>
+      <p>CDE Print Works started with one printer and a love for making things. Today we design and print modern decor, desk accessories and custom pieces, one order at a time.</p>
+      <p>Every item is printed to order, checked by hand and packed with care before it ships.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>100%</strong><span>Printed to order</span></div>
+      <div class="stat"><strong>US</strong><span>Nationwide shipping</span></div>
+      <div class="stat"><strong>MA</strong><span>Local pickup</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="logo.png" alt="">CDE PRINT WORKS</div>
+        <p>Quality. Creativity. Service.<br>Custom 3D printing, made in Massachusetts.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a data-etsy href="#" target="_blank" rel="noopener">Etsy shop</a></li>
+          <li><a data-facebook href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="#custom">Custom orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a data-email href="#">hello@cdeprintworks.com</a></li>
+          <li>Massachusetts, USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="y">2026</span> CDE Print Works</span><span>cdeprintworks.com</span></div>
+  </div>
+</footer>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+(async()=>{
+  let st={},items=[];
+  try{st=await (await fetch('/data/settings.json',{cache:'no-cache'})).json()}catch(e){}
+  try{items=await (await fetch('/data/products.json',{cache:'no-cache'})).json()}catch(e){}
+  const etsy=st.etsy_url||'#';
+  document.querySelectorAll('[data-etsy]').forEach(a=>a.href=etsy);
+  if(st.facebook_url)document.querySelectorAll('[data-facebook]').forEach(a=>a.href=st.facebook_url);
+  if(st.messenger_url)document.querySelectorAll('[data-messenger]').forEach(a=>a.href=st.messenger_url);
+  if(st.email){
+    document.querySelectorAll('[data-email]').forEach(a=>{a.href='mailto:'+st.email;a.textContent=st.email});
+    document.querySelectorAll('[data-email-subject]').forEach(a=>a.href='mailto:'+st.email+'?subject='+encodeURIComponent(a.dataset.emailSubject));
+  }
+  const html=(items||[]).filter(p=>p&&p.published!==false&&p.title).map(p=>{
+    const link=p.link||etsy, ext=/^https?:/.test(link);
+    const details=(p.details||[]).filter(Boolean).map(d=>`<li>${esc(d)}</li>`).join('');
+    return `<article class="card">
+      <div class="img">${p.badge?`<span class="tag">${esc(p.badge)}</span>`:''}${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.title)}" loading="lazy">`:''}</div>
+      <div class="body"><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p>
+      ${details?`<ul>${details}</ul>`:''}${p.price?`<div class="price">${esc(p.price)}</div>`:''}
+      <a class="btn btn-primary btn-sm" href="${esc(link)}"${ext?' target="_blank" rel="noopener"':''}>${esc(p.button_text||'Buy on Etsy')}</a></div></article>`;
+  }).join('');
+  document.getElementById('cards').innerHTML=html;
+})();
+</script>
+</body>
+</html>
