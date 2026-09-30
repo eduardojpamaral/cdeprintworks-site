@@ -58,6 +58,12 @@ content:
       - name: messenger_url
         label: Messenger link (m.me/...)
         type: string
+      - name: instagram_url
+        label: Instagram link
+        type: string
+      - name: tiktok_url
+        label: TikTok link
+        type: string
       - name: email
         label: Contact email
         type: string
