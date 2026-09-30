@@ -28,16 +28,16 @@
     "published": true
   },
   {
-    "title": "Desk Gear & Custom Pieces",
-    "badge": "CUSTOM",
-    "description": "Organizers, name plates, gifts, replacement parts. Tell us what you need and we'll quote it.",
+    "title": "Custom Christmas Prints",
+    "badge": "COMING SOON",
+    "description": "Personalized 3D printed ornaments, name tags, gifts and holiday decor. Made to order in your colors, just in time for Christmas.",
     "details": [
-      "Your colors, your size",
-      "Free quote in 24-48 hours"
+      "Custom names and colors",
+      "Order early for holiday delivery"
     ],
     "price": "",
-    "photo": "/images/custom.svg",
-    "button_text": "Get a quote",
+    "photo": "/images/christmas-coming-soon.jpg",
+    "button_text": "Request yours",
     "link": "#custom",
     "published": true
   }
