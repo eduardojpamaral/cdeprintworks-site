@@ -3,18 +3,24 @@
     "title": "Forever Tulips (Set of 3)",
     "badge": "BEST SELLER",
     "description": "3D printed tulips that never wilt. Mix three stem heights or pick one size in your favorite colors.",
-    "details": ["Heights: ~8\" / 9\" / 10\" (20, 23, 25 cm)", "Flowers only, vase sold separately"],
-    "price": "",
-    "photo": "/images/tulips.svg",
+    "details": [
+      "Heights: ~8\" / 9\" / 10\" (20, 23, 25 cm)",
+      "Flowers only, vase sold separately"
+    ],
+    "price": "$19.90",
+    "photo": "https://i.etsystatic.com/68040882/r/il/c9620b/8519756432/il_794xN.8519756432_1b3k.jpg",
     "button_text": "Buy on Etsy",
-    "link": "",
+    "link": "https://www.etsy.com/listing/4574806351/3d-printed-tulips-set-of-3-forever",
     "published": true
   },
   {
     "title": "Ribbed Flower Vase",
     "badge": "",
     "description": "A modern ribbed vase sized for our tulips. Great on a desk, shelf or nightstand.",
-    "details": ["About 3\" x 3\" x 5\" (7.4 x 7.4 x 12.5 cm)", "Decorative use with printed flowers"],
+    "details": [
+      "About 3\" x 3\" x 5\" (7.4 x 7.4 x 12.5 cm)",
+      "Decorative use with printed flowers"
+    ],
     "price": "",
     "photo": "/images/vase.svg",
     "button_text": "Buy on Etsy",
@@ -25,7 +31,10 @@
     "title": "Desk Gear & Custom Pieces",
     "badge": "CUSTOM",
     "description": "Organizers, name plates, gifts, replacement parts. Tell us what you need and we'll quote it.",
-    "details": ["Your colors, your size", "Free quote in 24-48 hours"],
+    "details": [
+      "Your colors, your size",
+      "Free quote in 24-48 hours"
+    ],
     "price": "",
     "photo": "/images/custom.svg",
     "button_text": "Get a quote",
