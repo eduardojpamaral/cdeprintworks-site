@@ -1,43 +1,67 @@
 [
   {
     "title": "Forever Tulips (Set of 3)",
+    "title_pt": "Tulipas Eternas (Kit com 3)",
     "badge": "BEST SELLER",
+    "badge_pt": "MAIS VENDIDO",
     "description": "3D printed tulips that never wilt. Mix three stem heights or pick one size in your favorite colors.",
+    "description_pt": "Tulipas impressas em 3D que nunca murcham. Combine três alturas de haste ou escolha um só tamanho nas suas cores favoritas.",
     "details": [
       "Heights: ~8\" / 9\" / 10\" (20, 23, 25 cm)",
       "Flowers only, vase sold separately"
     ],
+    "details_pt": [
+      "Alturas: ~20 / 23 / 25 cm (8\" / 9\" / 10\")",
+      "Só as flores, o vaso é vendido separadamente"
+    ],
     "price": "$19.90",
     "photo": "https://i.etsystatic.com/68040882/r/il/c9620b/8519756432/il_794xN.8519756432_1b3k.jpg",
     "button_text": "Buy on Etsy",
+    "button_text_pt": "Comprar no Etsy",
     "link": "https://www.etsy.com/listing/4574806351/3d-printed-tulips-set-of-3-forever",
     "published": true
   },
   {
     "title": "Ribbed Flower Vase",
+    "title_pt": "Vaso Canelado para Flores",
     "badge": "",
+    "badge_pt": "",
     "description": "A modern ribbed vase sized for our tulips. Great on a desk, shelf or nightstand.",
+    "description_pt": "Um vaso canelado moderno, no tamanho certo para as nossas tulipas. Fica ótimo na mesa, na estante ou no criado-mudo.",
     "details": [
       "About 3\" x 3\" x 5\" (7.4 x 7.4 x 12.5 cm)",
       "Decorative use with printed flowers"
     ],
+    "details_pt": [
+      "Aprox. 7,4 x 7,4 x 12,5 cm (3\" x 3\" x 5\")",
+      "Uso decorativo, com flores impressas"
+    ],
     "price": "",
     "photo": "/images/vase.jpg",
     "button_text": "Buy on Etsy",
+    "button_text_pt": "Comprar no Etsy",
     "link": "",
     "published": true
   },
   {
     "title": "Custom Christmas Prints",
+    "title_pt": "Impressões de Natal Personalizadas",
     "badge": "COMING SOON",
+    "badge_pt": "EM BREVE",
     "description": "Personalized 3D printed ornaments, name tags, gifts and holiday decor. Made to order in your colors, just in time for Christmas.",
+    "description_pt": "Enfeites, etiquetas com nome, presentes e decoração de Natal impressos em 3D e personalizados. Feitos sob encomenda nas suas cores, a tempo para o Natal.",
     "details": [
       "Custom names and colors",
       "Order early for holiday delivery"
     ],
+    "details_pt": [
+      "Nomes e cores personalizados",
+      "Encomende cedo para receber antes das festas"
+    ],
     "price": "",
     "photo": "/images/christmas-coming-soon.jpg",
     "button_text": "Request yours",
+    "button_text_pt": "Peça o seu",
     "link": "#custom",
     "published": true
   }
