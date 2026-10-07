@@ -117,7 +117,31 @@ footer li{list-style:none;margin:6px 0}
 .social span{margin-left:4px;color:#C9D3EA;font-size:.9rem}
 .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
+/* language */
+.navr{display:flex;align-items:center;gap:16px}
+.langs{display:flex;gap:6px}
+.langs button{border:0;background:none;padding:3px;border-radius:7px;cursor:pointer;opacity:.45;transition:opacity .15s,box-shadow .15s;line-height:0}
+.langs button:hover{opacity:.85}
+.langs button.on{opacity:1;box-shadow:0 0 0 2px var(--teal)}
+.langs svg{width:28px;height:19px;border-radius:4px;box-shadow:0 0 0 1px rgba(14,37,84,.15)}
+.lang-modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:20px;background:rgba(10,27,63,.55);backdrop-filter:blur(6px)}
+.lang-modal.show{display:grid}
+.lang-box{background:var(--paper);border-radius:24px;padding:36px 28px 26px;max-width:460px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(10,27,63,.35)}
+.lang-box img{height:84px;width:auto;margin:0 auto 14px}
+.lang-box h2{font-size:1.45rem;margin:0}
+.lang-box > p{color:var(--muted);margin:6px 0 24px;font-size:.95rem}
+.lang-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lang-opts button{font:inherit;cursor:pointer;background:#fff;border:2px solid rgba(14,37,84,.12);border-radius:18px;padding:20px 10px 16px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--navy);font-weight:600;transition:transform .15s,border-color .15s,box-shadow .15s}
+.lang-opts button:hover,.lang-opts button:focus-visible{transform:translateY(-3px);border-color:var(--teal);outline:none}
+.lang-opts button.suggest{border-color:var(--teal);box-shadow:0 8px 22px rgba(28,168,170,.22)}
+.lang-opts svg{width:96px;height:64px;border-radius:8px;box-shadow:0 4px 12px rgba(14,37,84,.18)}
+.lang-box small{display:block;color:var(--muted);margin-top:18px;font-size:.8rem}
+
 @media (max-width:900px){
+  nav{height:auto;min-height:60px;padding:10px 0;gap:10px}
+  .navr{gap:10px;flex-shrink:0}
+  .langs{gap:4px}
+  .langs svg{width:24px;height:16px}
   .hero .grid,.about .grid{grid-template-columns:1fr}
   .hero-art{order:-1;max-width:300px;width:100%;margin:0 auto}
   .swoosh{display:none}
@@ -136,13 +160,19 @@ footer li{list-style:none;margin:6px 0}
   <div class="wrap">
     <nav>
       <div class="links">
-        <a href="#top">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#custom">Custom Orders</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#top" data-i18n="nav_home">Home</a>
+        <a href="#shop" data-i18n="nav_shop">Shop</a>
+        <a href="#custom" data-i18n="nav_custom">Custom Orders</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </div>
-      <a class="btn btn-primary btn-sm" data-etsy href="#" target="_blank" rel="noopener">Shop on Etsy</a>
+      <div class="navr">
+        <div class="langs" role="group" aria-label="Language / Idioma">
+          <button type="button" data-setlang="en" aria-label="English" title="English"><span data-flag="us"></span></button>
+          <button type="button" data-setlang="pt" aria-label="Português" title="Português"><span data-flag="br"></span></button>
+        </div>
+        <a class="btn btn-primary btn-sm" data-etsy href="#" target="_blank" rel="noopener" data-i18n="nav_etsy">Shop on Etsy</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -155,17 +185,17 @@ footer li{list-style:none;margin:6px 0}
   </svg>
   <div class="wrap grid">
     <div>
-      <div class="eyebrow">Made in Massachusetts</div>
-      <h1>Custom 3D prints, <span>made just for you.</span></h1>
-      <p class="lead">Modern home decor, desk gear, gifts and one-of-a-kind pieces, designed and printed to order by a small family studio.</p>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Made in Massachusetts</div>
+      <h1 data-i18n="hero_h1">Custom 3D prints, <span>made just for you.</span></h1>
+      <p class="lead" data-i18n="hero_lead">Modern home decor, desk gear, gifts and one-of-a-kind pieces, designed and printed to order by a small family studio.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#shop">See our products</a>
-        <a class="btn btn-ghost" href="#custom">Request a custom print</a>
+        <a class="btn btn-primary" href="#shop" data-i18n="hero_cta1">See our products</a>
+        <a class="btn btn-ghost" href="#custom" data-i18n="hero_cta2">Request a custom print</a>
       </div>
       <div class="badges">
-        <div><i></i>Ships nationwide</div>
-        <div><i></i>Local pickup in MA</div>
-        <div><i></i>Custom colors</div>
+        <div><i></i><span data-i18n="badge1">Ships nationwide</span></div>
+        <div><i></i><span data-i18n="badge2">Local pickup in MA</span></div>
+        <div><i></i><span data-i18n="badge3">Custom colors</span></div>
       </div>
     </div>
     <div class="hero-art">
@@ -177,9 +207,9 @@ footer li{list-style:none;margin:6px 0}
 <section id="shop">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Shop</div>
-      <h2>Best sellers</h2>
-      <p>Every piece is printed to order in the colors you choose.</p>
+      <div class="eyebrow" data-i18n="shop_eyebrow">Shop</div>
+      <h2 data-i18n="shop_h2">Best sellers</h2>
+      <p data-i18n="shop_p">Every piece is printed to order in the colors you choose.</p>
     </div>
     <div class="cards" id="cards"></div>
   </div>
@@ -188,18 +218,18 @@ footer li{list-style:none;margin:6px 0}
 <section id="custom" class="custom layers">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Custom orders</div>
-      <h2>Have an idea? We'll print it.</h2>
-      <p>From a quick sketch to a finished piece in three simple steps.</p>
+      <div class="eyebrow" data-i18n="custom_eyebrow">Custom orders</div>
+      <h2 data-i18n="custom_h2">Have an idea? We'll print it.</h2>
+      <p data-i18n="custom_p">From a quick sketch to a finished piece in three simple steps.</p>
     </div>
     <div class="steps">
-      <div class="step"><b>1</b><h3>Send your idea</h3><p>A photo, a sketch, a link or just a description. Include size and colors if you know them.</p></div>
-      <div class="step"><b>2</b><h3>Get a quote</h3><p>We'll reply with a price, colors and a production time. No commitment.</p></div>
-      <div class="step"><b>3</b><h3>We print & ship</h3><p>Your piece is printed to order and shipped anywhere in the US, or ready for local pickup in MA.</p></div>
+      <div class="step"><b>1</b><h3 data-i18n="s1_h">Send your idea</h3><p data-i18n="s1_p">A photo, a sketch, a link or just a description. Include size and colors if you know them.</p></div>
+      <div class="step"><b>2</b><h3 data-i18n="s2_h">Get a quote</h3><p data-i18n="s2_p">We'll reply with a price, colors and a production time. No commitment.</p></div>
+      <div class="step"><b>3</b><h3 data-i18n="s3_h">We print &amp; ship</h3><p data-i18n="s3_p">Your piece is printed to order and shipped anywhere in the US, or ready for local pickup in MA.</p></div>
     </div>
     <div class="cta">
-      <a class="btn btn-primary" data-email-subject="Custom print request" href="#">Email your idea</a>
-      <a class="btn btn-ghost" data-messenger href="#" target="_blank" rel="noopener">Message us on Facebook</a>
+      <a class="btn btn-primary" data-email-subject="Custom print request" href="#" data-i18n="custom_cta1">Email your idea</a>
+      <a class="btn btn-ghost" data-messenger href="#" target="_blank" rel="noopener" data-i18n="custom_cta2">Message us on Facebook</a>
     </div>
   </div>
 </section>
@@ -207,15 +237,15 @@ footer li{list-style:none;margin:6px 0}
 <section id="about" class="about">
   <div class="wrap grid">
     <div>
-      <div class="eyebrow">About us</div>
-      <h2>A small family studio in Massachusetts</h2>
-      <p>CDE Print Works started with one printer and a love for making things. Today we design and print modern decor, desk accessories and custom pieces, one order at a time.</p>
-      <p>Every item is printed to order, checked by hand and packed with care before it ships.</p>
+      <div class="eyebrow" data-i18n="about_eyebrow">About us</div>
+      <h2 data-i18n="about_h2">A small family studio in Massachusetts</h2>
+      <p data-i18n="about_p1">CDE Print Works started with one printer and a love for making things. Today we design and print modern decor, desk accessories and custom pieces, one order at a time.</p>
+      <p data-i18n="about_p2">Every item is printed to order, checked by hand and packed with care before it ships.</p>
     </div>
     <div class="stats">
-      <div class="stat"><strong>100%</strong><span>Printed to order</span></div>
-      <div class="stat"><strong>US</strong><span>Nationwide shipping</span></div>
-      <div class="stat"><strong>MA</strong><span>Local pickup</span></div>
+      <div class="stat"><strong>100%</strong><span data-i18n="stat1">Printed to order</span></div>
+      <div class="stat"><strong>US</strong><span data-i18n="stat2">Nationwide shipping</span></div>
+      <div class="stat"><strong>MA</strong><span data-i18n="stat3">Local pickup</span></div>
     </div>
   </div>
 </section>
@@ -225,57 +255,133 @@ footer li{list-style:none;margin:6px 0}
     <div class="fgrid">
       <div>
         <div class="fbrand"><img src="/images/logo.png" alt="">CDE PRINT WORKS</div>
-        <p>Quality. Creativity. Service.<br>Custom 3D printing, made in Massachusetts.</p>
+        <p data-i18n="foot_p">Quality. Creativity. Service.<br>Custom 3D printing, made in Massachusetts.</p>
         <div class="social"><a data-instagram href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a data-tiktok href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.5 3c.3 2.2 1.7 3.8 4 4v3.3c-1.5 0-2.9-.4-4-1.1V15a6 6 0 1 1-6-6h.6v3.4a2.6 2.6 0 1 0 2 2.6V3z"/></svg></a><a data-facebook href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg></a><span>@cdeprintworks</span></div>
       </div>
       <div>
-        <h4>Shop</h4>
+        <h4 data-i18n="foot_shop">Shop</h4>
         <ul>
-          <li><a data-etsy href="#" target="_blank" rel="noopener">Etsy shop</a></li>
+          <li><a data-etsy href="#" target="_blank" rel="noopener" data-i18n="foot_etsy">Etsy shop</a></li>
           <li><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a></li>
           <li><a data-tiktok href="#" target="_blank" rel="noopener">TikTok</a></li>
           <li><a data-facebook href="#" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="#custom">Custom orders</a></li>
+          <li><a href="#custom" data-i18n="foot_custom">Custom orders</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-i18n="foot_contact">Contact</h4>
         <ul>
           <li><a data-email href="#">contact@cdeprintworks.com</a></li>
-          <li>Massachusetts, USA</li>
+          <li data-i18n="foot_loc">Massachusetts, USA</li>
         </ul>
       </div>
     </div>
     <div class="copy"><span>© <span id="y">2026</span> CDE Print Works</span><span>cdeprintworks.com</span></div>
   </div>
 </footer>
+
+<div class="lang-modal" id="langModal" role="dialog" aria-modal="true" aria-labelledby="langTitle">
+  <div class="lang-box">
+    <img src="/images/logo.png" alt="CDE Print Works">
+    <h2 id="langTitle">Welcome! · Bem-vindo!</h2>
+    <p>Choose your language · Escolha seu idioma</p>
+    <div class="lang-opts">
+      <button type="button" data-pick="en"><span data-flag="us"></span>English</button>
+      <button type="button" data-pick="pt"><span data-flag="br"></span>Português</button>
+    </div>
+    <small>You can change it anytime at the top · Você pode trocar a qualquer momento no topo</small>
+  </div>
+</div>
+
 <script>
+/* ===== Language (EN / PT) =====
+   Fixed texts: elements with data-i18n="key" get PT text from the dictionary below.
+   Products: use title_pt, description_pt, details_pt, badge_pt, button_text_pt in data/products.json.
+   Link straight to Portuguese: https://cdeprintworks.com/?lang=pt */
+const PT={
+  nav_home:'Início', nav_shop:'Loja', nav_custom:'Sob encomenda', nav_about:'Sobre', nav_contact:'Contato', nav_etsy:'Compre no Etsy',
+  hero_eyebrow:'Feito em Massachusetts',
+  hero_h1:'Impressões 3D personalizadas, <span>feitas só para você.</span>',
+  hero_lead:'Decoração moderna, acessórios de mesa, presentes e peças únicas, criados e impressos sob encomenda por um pequeno estúdio familiar.',
+  hero_cta1:'Ver nossos produtos', hero_cta2:'Pedir uma impressão personalizada',
+  badge1:'Envio para qualquer estado dos EUA', badge2:'Retirada em MA', badge3:'Cores personalizadas',
+  shop_eyebrow:'Loja', shop_h2:'Mais vendidos', shop_p:'Cada peça é impressa sob encomenda nas cores que você escolher.',
+  custom_eyebrow:'Sob encomenda', custom_h2:'Tem uma ideia? A gente imprime.', custom_p:'Do rascunho à peça pronta em três passos simples.',
+  s1_h:'Envie sua ideia', s1_p:'Uma foto, um desenho, um link ou só uma descrição. Se já souber, diga o tamanho e as cores.',
+  s2_h:'Receba um orçamento', s2_p:'Respondemos com preço, cores e prazo de produção. Sem compromisso.',
+  s3_h:'Imprimimos e enviamos', s3_p:'Sua peça é impressa sob encomenda e enviada para qualquer lugar dos EUA, ou fica pronta para retirada em MA.',
+  custom_cta1:'Envie sua ideia por e-mail', custom_cta2:'Fale com a gente no Facebook',
+  about_eyebrow:'Sobre nós', about_h2:'Um pequeno estúdio familiar em Massachusetts',
+  about_p1:'A CDE Print Works começou com uma impressora e a paixão por criar coisas. Hoje criamos e imprimimos decoração moderna, acessórios de mesa e peças personalizadas, um pedido de cada vez.',
+  about_p2:'Cada item é impresso sob encomenda, conferido à mão e embalado com carinho antes do envio.',
+  stat1:'Impresso sob encomenda', stat2:'Envio para todo o país', stat3:'Retirada local',
+  foot_p:'Qualidade. Criatividade. Atendimento.<br>Impressão 3D personalizada, feita em Massachusetts.',
+  foot_shop:'Loja', foot_etsy:'Loja no Etsy', foot_custom:'Sob encomenda', foot_contact:'Contato', foot_loc:'Massachusetts, EUA'
+};
+const META={
+  en:{title:document.title, desc:document.querySelector('meta[name=description]').content, subject:'Custom print request', button:'Buy on Etsy'},
+  pt:{title:'CDE Print Works | Impressão 3D personalizada em Massachusetts', desc:'Decoração, acessórios de mesa, presentes e peças personalizadas impressas em 3D. Feito sob encomenda em Massachusetts, com envio para qualquer estado dos EUA.', subject:'Pedido de impressão personalizada', button:'Comprar no Etsy'}
+};
+const FLAGS={
+  us:(()=>{let r='';for(let i=0;i<7;i++)r+=`<rect y="${(i*2*10/13).toFixed(3)}" width="19" height="${(10/13).toFixed(3)}" fill="#B22234"/>`;
+    let st='';for(let y=0;y<5;y++)for(let x=0;x<6;x++)st+=`<circle cx="${(.7+x*1.25+(y%2?.6:0)).toFixed(2)}" cy="${(.62+y*1.03).toFixed(2)}" r=".26" fill="#fff"/>`;
+    return `<svg viewBox="0 0 19 10" aria-hidden="true"><rect width="19" height="10" fill="#fff"/>${r}<rect width="7.6" height="5.385" fill="#3C3B6E"/>${st}</svg>`})(),
+  br:'<svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><path d="M1.7 7 10 1.2 18.3 7 10 12.8Z" fill="#FFDF00"/><circle cx="10" cy="7" r="3.5" fill="#002776"/><path d="M6.6 6.2Q10 4.9 13.45 7.6" stroke="#fff" stroke-width=".65" fill="none"/></svg>'
+};
+document.querySelectorAll('[data-flag]').forEach(el=>el.outerHTML=FLAGS[el.dataset.flag]);
+const EN={};document.querySelectorAll('[data-i18n]').forEach(el=>EN[el.dataset.i18n]=el.innerHTML);
+const store={get(){try{return localStorage.getItem('cde_lang')}catch(e){return null}},set(v){try{localStorage.setItem('cde_lang',v)}catch(e){}}};
+let LANG='en', ITEMS=[], ST={};
+function setLang(l,save){
+  LANG=l==='pt'?'pt':'en'; if(save)store.set(LANG);
+  document.documentElement.lang=LANG==='pt'?'pt-BR':'en';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.innerHTML=(LANG==='pt'&&PT[k])||EN[k]});
+  document.title=META[LANG].title; document.querySelector('meta[name=description]').content=META[LANG].desc;
+  document.querySelectorAll('[data-setlang]').forEach(b=>{b.classList.toggle('on',b.dataset.setlang===LANG);b.setAttribute('aria-pressed',b.dataset.setlang===LANG)});
+  if(ST.email)document.querySelectorAll('[data-email-subject]').forEach(a=>a.href='mailto:'+ST.email+'?subject='+encodeURIComponent(META[LANG].subject));
+  renderProducts();
+}
+const modal=document.getElementById('langModal');
+function closeModal(l){modal.classList.remove('show');setLang(l,true)}
+document.querySelectorAll('[data-setlang]').forEach(b=>b.onclick=()=>setLang(b.dataset.setlang,true));
+document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>closeModal(b.dataset.pick));
+const guess=/^pt/i.test(navigator.language||'')?'pt':'en';
+modal.onclick=e=>{if(e.target===modal)closeModal(guess)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeModal(guess)});
+const urlLang=new URLSearchParams(location.search).get('lang');
+if(urlLang==='pt'||urlLang==='en'){setLang(urlLang,true)}
+else if(store.get()){setLang(store.get(),false)}
+else{setLang(guess,false);modal.querySelector(`[data-pick="${guess}"]`).classList.add('suggest');modal.classList.add('show');modal.querySelector(`[data-pick="${guess}"]`).focus()}
+
 document.getElementById('y').textContent=new Date().getFullYear();
-const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function esc(t){return String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function pick(p,k){const v=p[k+'_pt'];if(LANG==='pt'&&(Array.isArray(v)?v.filter(Boolean).length:v))return v;return p[k]}
+function renderProducts(){
+  const box=document.getElementById('cards'); if(!box)return;
+  const etsy=ST.etsy_url||'#';
+  box.innerHTML=(ITEMS||[]).filter(p=>p&&p.published!==false&&p.title).map(p=>{
+    const link=p.link||etsy, ext=/^https?:/.test(link), title=pick(p,'title'), badge=pick(p,'badge');
+    let btn=pick(p,'button_text');
+    if(LANG==='pt'&&!p.button_text_pt&&(!p.button_text||p.button_text==='Buy on Etsy'))btn=META.pt.button;
+    const details=(pick(p,'details')||[]).filter(Boolean).map(d=>`<li>${esc(d)}</li>`).join('');
+    return `<article class="card">
+      <div class="img">${badge?`<span class="tag">${esc(badge)}</span>`:''}${p.photo?`<img src="${esc(p.photo)}" alt="${esc(title)}" loading="lazy">`:''}</div>
+      <div class="body"><h3>${esc(title)}</h3><p>${esc(pick(p,'description'))}</p>
+      ${details?`<ul>${details}</ul>`:''}${p.price?`<div class="price">${esc(p.price)}</div>`:''}
+      <a class="btn btn-primary btn-sm" href="${esc(link)}"${ext?' target="_blank" rel="noopener"':''}>${esc(btn||META[LANG].button)}</a></div></article>`;
+  }).join('');
+}
 (async()=>{
-  let st={},items=[];
-  try{st=await (await fetch('/data/settings.json',{cache:'no-cache'})).json()}catch(e){}
-  try{items=await (await fetch('/data/products.json',{cache:'no-cache'})).json()}catch(e){}
-  const etsy=st.etsy_url||'#';
+  try{ST=await (await fetch('/data/settings.json',{cache:'no-cache'})).json()}catch(e){}
+  try{ITEMS=await (await fetch('/data/products.json',{cache:'no-cache'})).json()}catch(e){}
+  const st=ST, etsy=st.etsy_url||'#';
   document.querySelectorAll('[data-etsy]').forEach(a=>a.href=etsy);
   if(st.facebook_url)document.querySelectorAll('[data-facebook]').forEach(a=>a.href=st.facebook_url);
   if(st.instagram_url)document.querySelectorAll('[data-instagram]').forEach(a=>a.href=st.instagram_url);
   if(st.tiktok_url)document.querySelectorAll('[data-tiktok]').forEach(a=>a.href=st.tiktok_url);
   if(st.messenger_url)document.querySelectorAll('[data-messenger]').forEach(a=>a.href=st.messenger_url);
-  if(st.email){
-    document.querySelectorAll('[data-email]').forEach(a=>{a.href='mailto:'+st.email;a.textContent=st.email});
-    document.querySelectorAll('[data-email-subject]').forEach(a=>a.href='mailto:'+st.email+'?subject='+encodeURIComponent(a.dataset.emailSubject));
-  }
-  const html=(items||[]).filter(p=>p&&p.published!==false&&p.title).map(p=>{
-    const link=p.link||etsy, ext=/^https?:/.test(link);
-    const details=(p.details||[]).filter(Boolean).map(d=>`<li>${esc(d)}</li>`).join('');
-    return `<article class="card">
-      <div class="img">${p.badge?`<span class="tag">${esc(p.badge)}</span>`:''}${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.title)}" loading="lazy">`:''}</div>
-      <div class="body"><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p>
-      ${details?`<ul>${details}</ul>`:''}${p.price?`<div class="price">${esc(p.price)}</div>`:''}
-      <a class="btn btn-primary btn-sm" href="${esc(link)}"${ext?' target="_blank" rel="noopener"':''}>${esc(p.button_text||'Buy on Etsy')}</a></div></article>`;
-  }).join('');
-  document.getElementById('cards').innerHTML=html;
+  if(st.email)document.querySelectorAll('[data-email]').forEach(a=>{a.href='mailto:'+st.email;a.textContent=st.email});
+  setLang(LANG,false);
 })();
 </script>
 </body>

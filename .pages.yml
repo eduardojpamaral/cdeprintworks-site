@@ -15,14 +15,24 @@ content:
         label: Product name
         type: string
         required: true
+      - name: title_pt
+        label: Nome do produto (Português)
+        type: string
       - name: photo
         label: Photo
         type: image
       - name: description
         label: Description
         type: text
+      - name: description_pt
+        label: Descrição (Português)
+        type: text
       - name: details
         label: Bullet points
+        type: string
+        list: true
+      - name: details_pt
+        label: Bullet points (Português)
         type: string
         list: true
       - name: price
@@ -31,10 +41,16 @@ content:
       - name: badge
         label: Badge (optional, e.g. BEST SELLER, NEW)
         type: string
+      - name: badge_pt
+        label: Selo (Português, ex. MAIS VENDIDO, NOVO)
+        type: string
       - name: button_text
         label: Button text
         type: string
         default: Buy on Etsy
+      - name: button_text_pt
+        label: Texto do botão (Português). Vazio = Comprar no Etsy
+        type: string
       - name: link
         label: Button link (Etsy listing URL). Leave empty to use the Etsy shop link
         type: string
